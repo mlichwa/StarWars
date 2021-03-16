@@ -1,10 +1,13 @@
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { observer } from 'mobx-react';
-import styles from './App.module.scss';
+
 import MainPage from './pages/main/main';
+import Header from './components/header/header';
 
 
 
-const App = ovserver(
+const App = observer(
     class App extends Component{
         
       constructor(props){
