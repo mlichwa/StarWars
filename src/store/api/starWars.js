@@ -13,9 +13,9 @@ class StarWarsApi {
         }).then((response) => {
             console.log("GOT FILMS DATA:", response.data.results)
             
-            response.data.results.map( object => {
-                console.log(object.title)
-                filmsStore.addFilm(object.title)
+            response.data.results.map( film => {
+                // console.log(object.title)
+                filmsStore.addFilm(film)
             })
              
             // return response.data
