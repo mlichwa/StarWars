@@ -1,0 +1,35 @@
+.component{
+    background: rgb(36, 36, 36);
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 300px;
+    z-index: 10;
+    right: -300px;
+    transition: all 1s;
+}
+
+.openCloseButton{
+    height: 30px;
+    width: 200px;
+    align-self: flex-end;
+    bottom: 100px;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: -115px;
+    background: rgb(36, 36, 36);
+    color: white;
+    border: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    &:hover{
+        color: yellow;
+        transition: all 1s;
+    }
+}
+
+.open{
+    right: 0px;
+    transition: all 1s;
+}

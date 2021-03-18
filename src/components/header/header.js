@@ -19,8 +19,8 @@ const Header = observer(
 
         render(){
             return(
-                <header className={styles.header} >
-                    <ul>
+                <header className={styles.component} >
+                    <div className={styles.header}>
                         <NavLink to="/" className={styles.item} activeClassName={styles.active} exact={true}>
                             All Films
                         </NavLink>
@@ -30,7 +30,7 @@ const Header = observer(
                         <NavLink to="/favoritedActors" className={styles.item} activeClassName={styles.active} exact={true}>
                             Faved Actors
                         </NavLink>
-                    </ul>
+                    </div>
                 </header>
             );
         }   

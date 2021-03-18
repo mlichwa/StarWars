@@ -1,0 +1,23 @@
+.component{
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    & .header{
+        padding: 0;
+        margin: 0;
+        border-radius: 10px;
+        display: flex;
+    }
+
+    & .item{
+        padding: 10px 15px;
+        border-bottom: 2px solid transparent;
+        text-decoration: none;
+        &:hover{
+            border-bottom: 2px solid red;
+        }
+    }
+    & .active{
+        background: rgb(215, 215, 214);
+    }
+}
