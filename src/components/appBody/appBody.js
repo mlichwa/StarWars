@@ -7,11 +7,17 @@ const AppBody = observer(
     function AppBody(){
     
         const filmsStore = useFilmsStore()
+
+        function updateFavorite(target) {
+            console.log("update", target)
+
+        }
+
         return(
             <div className={styles.body_grid}>
-                {filmsStore.films.map(item => (
+                {filmsStore.getAllFilms().map(item => (
                     
-                    <Card key={item.id} object={item} />
+                    <Card key={item.id} object={item} filmsStore={filmsStore}/>
                     
                 ))}
             </div>
