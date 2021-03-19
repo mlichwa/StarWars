@@ -1,3 +1,24 @@
-.card{
-    background: red;
+.grid_item{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(131, 131, 131, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 14px;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    & .starButton{
+        background: transparent;
+        border: none;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        background: lightgray;
+    }
 }
+

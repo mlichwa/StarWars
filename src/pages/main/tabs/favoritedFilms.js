@@ -10,7 +10,7 @@ class FavoritedFilms extends Component {
         
         return(
             <div className={styles.component}>
-                <h1>Favorited Films</h1>
+                 <h1 className={styles.header} >Favorited Films</h1>
             </div>
         )
     }

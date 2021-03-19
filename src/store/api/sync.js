@@ -1,7 +1,5 @@
 import { types, flow} from 'mobx-state-tree'
-import { useFilmsStore } from '../filmsContext'
-import StarWarsApi, { POST_ERROR }  from './starWars'
-import Film from '../models/film'
+import StarWarsApi  from './starWars'
 
 export const Sync = types
     .model('Sync', {

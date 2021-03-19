@@ -13,9 +13,6 @@ const Header = observer(
 
             }
         }
-        componentDidMount = () => {
-            
-        }
 
         render(){
             return(
