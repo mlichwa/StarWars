@@ -3,7 +3,12 @@ import { withRouter, Route } from "react-router-dom";
 import AllFilms from './tabs/allFilms';
 import FavoritedFilms from './tabs/favoritedFilms';
 import FavoritedActors from './tabs/favoritedActors';
+<<<<<<< Updated upstream
 
+=======
+import styles from './main.module.scss';
+import Sync from '../../store/api/sync'
+>>>>>>> Stashed changes
 
 class MainPage extends Component {
    
@@ -26,15 +31,25 @@ class MainPage extends Component {
         ];
     }
 
+
+
     render() {
         return(
+<<<<<<< Updated upstream
             <div>
+=======
+            
+            
+            <div className={styles.appBody}>
+>>>>>>> Stashed changes
                 {
                     this.routes.map((route, i) => (
                         <Route key={i} exact path={route.path} component={route.component} />
                     ))
                 }
             </div>
+           
+            
         )
     }
 }

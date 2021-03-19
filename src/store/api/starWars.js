@@ -5,16 +5,25 @@ export const POST_ERROR = 1
 class StarWarsApi {
 
 
-    async getFilms(){
+    async getFilms(filmsStore){
         console.log("StarWarsApi: Get Films");
         const object = axios
         .get(`films/`, '', {
 
         }).then((response) => {
-            console.log(response)
-            const data = response.data
+            console.log("GOT FILMS DATA:", response.data.results)
+            
+            response.data.results.map( object => {
+                console.log(object.title)
+                filmsStore.addFilm(object.title)
+            })
+             
+            // return response.data
         })
-
+        .catch(error => {
+            console.log(error)
+            return POST_ERROR
+        })
     }
 
 }

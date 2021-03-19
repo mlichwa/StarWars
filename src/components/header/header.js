@@ -3,6 +3,7 @@ import styles from './header.module.scss';
 import { withRouter, NavLink } from "react-router-dom";
 import { observer } from 'mobx-react';
 
+
 const Header = observer(
     class Header extends Component{
 
@@ -11,6 +12,9 @@ const Header = observer(
             this.state = {
 
             }
+        }
+        componentDidMount = () => {
+            
         }
 
         render(){
