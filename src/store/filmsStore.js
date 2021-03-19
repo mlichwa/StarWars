@@ -3,7 +3,8 @@ import {nanoid} from 'nanoid'
 export function createFilmsStore(){
     console.log("CREATING FILMS STORE:")
 
-    const arrayOfFavedFilms = localStorage.getItem('faved_films');
+
+    
 
     return {
         films: [],
@@ -11,8 +12,9 @@ export function createFilmsStore(){
             
 
             // Check if object with given ID ( episode ID ) is stored in the 
-            const isFaved = false
-            if(arrayOfFavedFilms !== null){
+            var isFaved = false
+            const arrayOfFavedFilms = JSON.parse(localStorage.getItem('faved_films'));
+            if(arrayOfFavedFilms !== null && arrayOfFavedFilms.length > 0){
 
                 
                 arrayOfFavedFilms.forEach(id => {
@@ -20,6 +22,8 @@ export function createFilmsStore(){
                         isFaved = true
                     }
                 })
+            }else{
+                localStorage.setItem('faved_films', JSON.stringify([]));
             }
 
             const convertedToDate = Date.parse(filmObject.release_date)
@@ -57,14 +61,28 @@ export function createFilmsStore(){
             const episode = this.films.find(x => x.episode_id === episode_id)
             const episodeIndex = this.films.findIndex(x => x.episode_id === episode_id)
             
-            console.log(episodeIndex)
-            console.log(episode)
+            if(episode.isFaved){
+                
+                var arrayOfFavedFilms = localStorage.getItem('faved_films')
+                let favedIndex = arrayOfFavedFilms.findIndex(x => x === episode_id)
+                arrayOfFavedFilms.splice(favedIndex, 1)
+                localStorage.setItem('faved_films', JSON.stringify(arrayOfFavedFilms))
+            
+            }else{
+
+                var arrayOfFavedFilms = JSON.parse(localStorage.getItem('faved_films'))
+                arrayOfFavedFilms.push(episode_id)
+                localStorage.setItem('faved_films', JSON.stringify(arrayOfFavedFilms))
+            }
+            
+            
             
             episode.isFaved = !episode.isFaved
+
+
+
             this.films[episodeIndex] = episode
-            
-            
-            console.log(episode.title)
+
         }
     }
 }
