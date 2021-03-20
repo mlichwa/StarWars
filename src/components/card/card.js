@@ -14,14 +14,16 @@ const Card = observer(
             }
         }
 
+        // Update Film with ID and add/remove it from the list of favorites.
         updateFavorite = () =>{
             console.log("clicked star with ID")
             this.props.filmsStore.changeFavedForAFilmID(this.props.object.episode_id);
-
         }
 
+        //  Open Modal view for a specified Film ID.
         openMoreView = () =>{
             console.log('open more view');
+            this.props.openModal(this.props.object.episode_id)
         }
 
         render(){
@@ -36,7 +38,7 @@ const Card = observer(
                     <p>{this.props.object.opening_crawl}</p>
                     <label><strong>Director: </strong>{this.props.object.director}</label>
                     <label><strong>Release date: </strong> {releaseDate}</label>
-                    <button className={styles.openMore} onClick={() => this.openMoreView }>Show Details</button>
+                    <button className={styles.openMore} onClick={() => this.openMoreView()}>Show Details</button>
                     <button className={styles.starButton} onClick={() => this.updateFavorite()}>
                         {isFaved}
                     </button>
@@ -44,8 +46,6 @@ const Card = observer(
                 </div>
             )   
         }
-        
-        
     }
 )
 

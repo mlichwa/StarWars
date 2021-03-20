@@ -5,11 +5,14 @@ import './styles/main.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { FilmsProvider } from './store/filmsContext';
+import { CharacterProvider } from './store/characterContext';
 
 const app = (
 		<BrowserRouter>
 			<FilmsProvider>
-				<App />
+				<CharacterProvider>
+					<App />
+				</CharacterProvider>
 			</FilmsProvider>
 		</BrowserRouter>
 )

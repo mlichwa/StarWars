@@ -11,6 +11,11 @@ export const Sync = types
             
             yield StarWarsApi.getFilms(filmsStore)
 
+        }),
+
+        get_characters_from_array: flow(function* (charactersArray, characterStore){
+
+            yield StarWarsApi.getCharacter(charactersArray, characterStore)
         })
 
     })).create()

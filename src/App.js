@@ -6,9 +6,11 @@ import Logger from './components/logger/logger';
 import { useFilmsStore } from './store/filmsContext';
 import styles from './App.module.scss';
 import { Sync } from './store/api/sync';
+import Modal from './components/modal/Modal';
+import useModal from './components/modal/useModal';
 
 
-  function App(){
+function App(){
 
     const filmsStore = useFilmsStore()
     Sync.get_all_films(filmsStore)

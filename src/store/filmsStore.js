@@ -3,9 +3,6 @@ import {nanoid} from 'nanoid'
 export function createFilmsStore(){
     console.log("CREATING FILMS STORE:")
 
-
-    
-
     return {
         films: [],
         addFilm(filmObject){
@@ -16,7 +13,6 @@ export function createFilmsStore(){
             const arrayOfFavedFilms = JSON.parse(localStorage.getItem('faved_films'));
             if(arrayOfFavedFilms !== null && arrayOfFavedFilms.length > 0){
 
-                
                 arrayOfFavedFilms.forEach(id => {
                     if(id === filmObject.episode_id){
                         isFaved = true
@@ -56,6 +52,10 @@ export function createFilmsStore(){
 
         },
 
+        // Update the selection for FAVED films.
+        // This function will update the object we store in memory
+        // and also the localStore array so the selection is avaible
+        // during app reload.
         changeFavedForAFilmID(episode_id){
 
             const episode = this.films.find(x => x.episode_id === episode_id)
@@ -63,7 +63,8 @@ export function createFilmsStore(){
             
             if(episode.isFaved){
                 
-                var arrayOfFavedFilms = localStorage.getItem('faved_films')
+                var arrayOfFavedFilms = JSON.parse(localStorage.getItem('faved_films'))
+                console.log(arrayOfFavedFilms)
                 let favedIndex = arrayOfFavedFilms.findIndex(x => x === episode_id)
                 arrayOfFavedFilms.splice(favedIndex, 1)
                 localStorage.setItem('faved_films', JSON.stringify(arrayOfFavedFilms))
@@ -75,14 +76,13 @@ export function createFilmsStore(){
                 localStorage.setItem('faved_films', JSON.stringify(arrayOfFavedFilms))
             }
             
-            
-            
             episode.isFaved = !episode.isFaved
-
-
-
             this.films[episodeIndex] = episode
 
+        },
+
+        getFilmWithID(id){
+            return this.films.find(x => x.episode_id === id)
         }
     }
 }

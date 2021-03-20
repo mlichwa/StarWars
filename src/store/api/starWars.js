@@ -7,8 +7,7 @@ class StarWarsApi {
 
     async getFilms(filmsStore){
         console.log("StarWarsApi: Get Films");
-        const object = axios
-        .get(`films/`, '', {
+        axios.get(`films/`, '', {
 
         }).then((response) => {
             console.log("GOT FILMS DATA:", response.data.results)
@@ -22,6 +21,28 @@ class StarWarsApi {
             console.log(error)
             return POST_ERROR
         })
+    }
+
+
+
+    async getCharacter(forURLs, characterStore){
+        
+        forURLs.forEach(url => {
+            axios.defaults.baseURL = url
+            axios.get(``, '',{
+
+            }).then((response) => {
+                characterStore.addCharacter(response.data)
+                
+            })
+            .catch(error => {
+                console.log(error)
+                return POST_ERROR
+            })
+        });
+
+
+        
     }
 }
 
