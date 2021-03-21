@@ -4,7 +4,8 @@ import StarWarsApi, { GET_ERROR } from './api/starWars';
 
 const Films = types.model('Films', {
   isLoading: types.optional(types.boolean, false),
-  films: types.optional(types.array(Film), [])
+  films: types.optional(types.array(Film), []),
+  activeFilm: types.maybeNull(types.reference(Film), null)
 })
 .actions(self => ({
   
@@ -17,6 +18,12 @@ const Films = types.model('Films', {
       self.films = data
       self.isLoading = false
     }
+  }),
+
+  setActiveFilm: flow(function * (film){
+    self.activeFilm = film
+    console.log('set active film for our modal view', film.episode_id)
+    return self.activeFilm
   })
   
 }))

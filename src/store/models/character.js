@@ -1,5 +1,4 @@
-import { types } from 'mobx-state-tree';
-import Films from '../Films';
+import { types, flow } from 'mobx-state-tree';
 
 const Character = types.model('Character', {
     name: types.identifier,
@@ -11,14 +10,23 @@ const Character = types.model('Character', {
     mass: types.maybeNull(types.string),
     skin_color: types.maybeNull(types.string),
     homeworld: types.maybeNull(types.string),
+    home: types.maybeNull(types.string),
     films: types.optional(types.array(types.string), []),
     species: types.optional(types.array(types.string), []),
     starships: types.optional(types.array(types.string), []),
     vehicles: types.optional(types.array(types.string), []),
     url: types.maybeNull(types.string),
     created: types.maybeNull(types.string),
-    edited: types.maybeNull(types.string)
+    edited: types.maybeNull(types.string),
+    isFaved: types.optional(types.boolean, false)
 
-})
+}).actions(self => ({
+    
+    toggleFave: flow(function* () {
+        console.log("toggleFaved")
+        self.isFaved = !self.isFaved
+    })
+    
+}))
 
 export default Character
