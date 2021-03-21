@@ -5,10 +5,10 @@ import './styles/main.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-if (process.env.REACT_APP_DISABLE_CONSOLE_LOG) {
-    console.log("Hello 😄")
-    console.log = function () { }
-}
+// if (process.env.REACT_APP_DISABLE_CONSOLE_LOG) {
+//     console.log("Hello 😄")
+//     console.log = function () { }
+// }
 
 const app = (
 		<BrowserRouter>
