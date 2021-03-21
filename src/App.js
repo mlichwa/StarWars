@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import MainPage from './pages/main/main';
 import Header from './components/header/header';
-import Logger from './components/logger/logger';
 import styles from './App.module.scss';
 import Films from './store/Films';
 import { observer } from 'mobx-react';
@@ -22,7 +21,6 @@ const App = observer(
                   <div className={styles.container}>
                       <Header />
                       <Route path="*" component={() => <MainPage />} />
-                      <Logger />
                       <Overlay/>
                   </div>
               </Router>

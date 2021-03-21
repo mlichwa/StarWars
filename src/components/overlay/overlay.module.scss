@@ -32,8 +32,6 @@
     border-radius: 3px;
     max-width: 600px;
     padding: 2rem 0.1rem;
-    overflow: hidden;
-    height: 80vh;
   }
   
   .Header {
@@ -102,10 +100,10 @@
   }
 
   .gridBox{
-    overflow: scroll;
+   
     display: block;
     position: relative;
-    height: inherit;
+    
   }
 
   .grid{

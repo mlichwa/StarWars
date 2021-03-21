@@ -4,16 +4,15 @@ import { BrowserRouter } from 'react-router-dom';
 import './styles/main.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { FilmsProvider } from './store/filmsContext';
-// import { CharacterProvider } from './store/characterContext';
+
+if (process.env.REACT_APP_DISABLE_CONSOLE_LOG) {
+    console.log("Hello 😄")
+    console.log = function () { }
+}
 
 const app = (
 		<BrowserRouter>
-			{/* <FilmsProvider>
-				<CharacterProvider> */}
-					<App />
-				{/* </CharacterProvider>
-			</FilmsProvider> */}
+			<App />
 		</BrowserRouter>
 )
 

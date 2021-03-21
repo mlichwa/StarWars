@@ -1,3 +1,4 @@
+/*eslint require-yield: "off"*/
 import { types, flow } from 'mobx-state-tree';
 import Character from './models/Character';
 import StarWarsApi, { GET_ERROR } from './api/starWars';
@@ -11,14 +12,14 @@ const Characters = types.model('Characters', {
   
     loadFavedCharacters: flow(function* () {
 
-        yield self.characters = []
+        self.characters = []
         const charactersIDs = LocalStorage.getAllCharacters()
-        //console.log("Loading characters: ", charactersIDs)
+        console.log("Loading characters: ", charactersIDs)
+        
         self.isLoading = true
         charactersIDs.forEach(async id => {
             
             const data = await StarWarsApi.getCharacterWithID(id)
-            
             if(data !== GET_ERROR){
                 self.addCharacter(data) 
             }
@@ -27,11 +28,11 @@ const Characters = types.model('Characters', {
 
     // Add character to our MobX data. Set isFaved to true.
     addCharacter: flow(function*(data){
-        //console.log("Add Character to the stack");
+        console.log("Add Character to the stack");
         data.isFaved = true
 
         self.characters.push(data)
-        yield self.isLoading = false  
+        self.isLoading = false  
     })
 }))
 .create();
