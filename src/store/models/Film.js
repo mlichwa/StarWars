@@ -1,3 +1,4 @@
+/*eslint require-yield: "off"*/
 import { flow, types } from 'mobx-state-tree';
 import LocalStorage from '../localStorage'
 
@@ -16,7 +17,7 @@ const Film = types.model('Film', {
     toggleFave: flow(function* () {
         
         console.log(self.episode_id);
-        yield self.isFaved = !self.isFaved
+        self.isFaved = !self.isFaved
 
         LocalStorage.updateFavoriteMovieForID(self.episode_id)
 

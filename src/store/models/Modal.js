@@ -1,3 +1,4 @@
+/*eslint require-yield: "off"*/
 import { types, flow } from 'mobx-state-tree';
 import Character from './Character';
 import StarWarsApi, { GET_ERROR } from '../api/starWars';
@@ -14,12 +15,12 @@ const Modal = types.model('Modal', {
     // Show/hide modal view. Asynchronously load data and update it based on the API return.
     toggleModal: flow(function*( filmData){
         
-        yield self.showModal = !self.showModal
+        self.showModal = !self.showModal
         self.characters = []
         if(self.showModal){
             console.log("open modal view for film", filmData.episode_id);
             
-            yield Films.setActiveFilm(filmData) // set active Film to be used for our Modal.
+            Films.setActiveFilm(filmData) // set active Film to be used for our Modal.
             
             filmData.characters.forEach(async url => {
                 const data = await StarWarsApi.getCharacter(url)
@@ -36,7 +37,7 @@ const Modal = types.model('Modal', {
     addCharacter: flow(function*(data){
         console.log("Add Character to the stack");
         const localStorage = LocalStorage
-        yield data.isFaved = localStorage.getFavoriteStateForName(data.url)
+        data.isFaved = localStorage.getFavoriteStateForName(data.url)
         self.characters.push(data)
     })
 
