@@ -1,4 +1,5 @@
 import { types, flow } from 'mobx-state-tree';
+import LocalStorage from '../localStorage'
 
 
 const Character = types.model('Character', {
@@ -26,6 +27,7 @@ const Character = types.model('Character', {
     toggleFave: flow(function* () {
         console.log("toggleFaved")
         self.isFaved = !self.isFaved
+        LocalStorage.updateFavoriteCharacterWithName(self.url)
     })
     
 }))

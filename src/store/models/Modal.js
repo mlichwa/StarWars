@@ -3,6 +3,7 @@ import Film from '../models/Film';
 import Character from '../models/Character';
 import StarWarsApi, { GET_ERROR } from '../api/starWars';
 import Films from '../Films';
+import LocalStorage from '../localStorage'
 
 const Modal = types.model('Modal', {
     isLoading: types.optional(types.boolean, false),
@@ -31,6 +32,8 @@ const Modal = types.model('Modal', {
 
     addCharacter: flow(function*(data){
         console.log("Add Character to the stack");
+        const localStorage = LocalStorage
+        data.isFaved = localStorage.getFavoriteStateForName(data.url)
         self.characters.push(data)
     })
 
