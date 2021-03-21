@@ -1,5 +1,5 @@
 import { types, flow } from 'mobx-state-tree';
-import Character from '../models/Character';
+import Character from './character';
 import StarWarsApi, { GET_ERROR } from '../api/starWars';
 import Films from '../Films';
 import LocalStorage from '../localStorage'
