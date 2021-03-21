@@ -30,7 +30,6 @@ const Films = types.model('Films', {
       self.films.map( object => {
         object.isFaved = localStorage.getFavoriteStateForID(object.episode_id)
       })
-
   }),
 
   setActiveFilm: flow(function * (film){
@@ -38,6 +37,8 @@ const Films = types.model('Films', {
     console.log('set active film for our modal view', film.episode_id)
     return self.activeFilm
   })
+
+
   
 }))
 .create();

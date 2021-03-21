@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { withRouter } from "react-router-dom";
+import React from 'react';
 import styles from "./allFilms.module.scss";
 import Films from './../../../store/Films';
 import { observer } from 'mobx-react';
