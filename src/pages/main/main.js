@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { withRouter, Route } from "react-router-dom";
 import AllFilms from './tabs/allFilms';
 import FavoritedFilms from './tabs/favoritedFilms';
-import FavoritedActors from './tabs/favoritedActors';
 import styles from './main.module.scss';
+import FavoritedCharacters from './tabs/favoritedCharacters';
 
 class MainPage extends Component {
    
@@ -20,8 +20,8 @@ class MainPage extends Component {
                 component: FavoritedFilms
             },
             {
-                path: "/favoritedActors",
-                component: FavoritedActors
+                path: "/favoritedCharacters",
+                component: FavoritedCharacters
             }
         ];
     }

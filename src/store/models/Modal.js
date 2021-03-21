@@ -6,7 +6,6 @@ import LocalStorage from '../localStorage'
 
 const Modal = types.model('Modal', {
     isLoading: types.optional(types.boolean, false),
-    
     characters: types.optional(types.array(Character), []),
     showModal: types.optional(types.boolean, false),
 })

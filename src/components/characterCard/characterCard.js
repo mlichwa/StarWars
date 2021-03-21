@@ -8,10 +8,8 @@ const CharacterCard = observer(
     class CharacterCard extends Component{
 
         render(){
-
             const { character } = this.props
             const isFaved = character.isFaved ? <Icon.Star fill="true" size="15" className={classNames(styles.icon)}/> : <Icon.Star size="15" className={classNames(styles.icon)}/>
-
             console.log("RENDER CHARACTER:: ", character)
             return(
                 <div className={styles.grid_item}>

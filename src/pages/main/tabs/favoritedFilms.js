@@ -11,7 +11,7 @@ const FavoritedFilms = observer(
         render() {
             return(
                 <div className={styles.component}>
-                <h1 className={styles.header} >All Films</h1>
+                <h1 className={styles.header} >Favorited Films</h1>
                 {
                     Films.isLoading ? <p>Is loading....</p> : <FavoritedFilmsComponent />
                 }

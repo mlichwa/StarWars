@@ -96,6 +96,14 @@ class LocalStorage{
         }
     }
 
+    // This function returns an array of faved characters we have stored locally.
+    // Here we make sure that the array of characters exists. If it doesnt, return empty one.
+    getAllCharacters(){
+        const characters = JSON.parse(localStorage.getItem('faved_characters')) != null ? JSON.parse(localStorage.getItem('faved_characters')) : []
+        return characters
+    }
+
+
 
     // Here we extract the ID of the object so we can use it later on.
     extractCharacterIDFromURL(url){

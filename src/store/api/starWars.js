@@ -7,6 +7,7 @@ class StarWarsApi {
 
 
     async getAllFilms(){
+        axios.defaults.baseURL = 'https://swapi.dev/api/';
         console.log("StarWarsApi: Get All Films");
         const films = axios.get(`films/`, '', {
         }).then((response) => {
@@ -37,6 +38,23 @@ class StarWarsApi {
         })
         return character
     }
+
+
+    async getCharacterWithID(id){
+        axios.defaults.baseURL = 'https://swapi.dev/api/';
+        console.log("StarWarsApi:: Get Character with a given ID")
+        const character = axios.get(`people/${id}`, '', {
+        }).then((response) => {
+            console.log("GOT FILMS DATA:", response.data)
+            return response.data
+        })
+        .catch(error => {
+            console.log(error)
+            return GET_ERROR
+        })
+        return character
+    }
+
 }
 
 export default new StarWarsApi()

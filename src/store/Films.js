@@ -30,7 +30,6 @@ const Films = types.model('Films', {
       self.films.map( object => {
         object.isFaved = localStorage.getFavoriteStateForID(object.episode_id)
       })
-
   }),
 
   setActiveFilm: flow(function * (film){
@@ -39,7 +38,7 @@ const Films = types.model('Films', {
     return self.activeFilm
   })
 
-  
+
   
 }))
 .create();
