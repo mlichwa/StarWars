@@ -1,19 +1,24 @@
-import React, { Component } from 'react';
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import FavoritedFilmsComponent from '../../../components/favoritedFilms/favoritedFilms';
 import styles from "./favoritedFilms.module.scss";
+import Films from './../../../store/Films';
+import { observer } from 'mobx-react';
 
 
-
-class FavoritedFilms extends Component {
-
-    render() {
+const FavoritedFilms = observer(
+    class FavoritedFilms extends React.Component{
         
-        return(
-            <div className={styles.component}>
-                 <h1 className={styles.header} >Favorited Films</h1>
-            </div>
-        )
+        render() {
+            return(
+                <div className={styles.component}>
+                <h1 className={styles.header} >All Films</h1>
+                {
+                    Films.isLoading ? <p>Is loading....</p> : <FavoritedFilmsComponent />
+                }
+            </div>   
+            )
+        }
     }
-}
+)
 
-export default withRouter(FavoritedFilms);
+export default FavoritedFilms;

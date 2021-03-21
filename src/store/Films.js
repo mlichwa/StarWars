@@ -38,6 +38,8 @@ const Films = types.model('Films', {
     console.log('set active film for our modal view', film.episode_id)
     return self.activeFilm
   })
+
+  
   
 }))
 .create();
