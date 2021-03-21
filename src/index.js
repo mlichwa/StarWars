@@ -4,13 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import './styles/main.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { FilmsProvider } from './store/filmsContext';
+// import { FilmsProvider } from './store/filmsContext';
+// import { CharacterProvider } from './store/characterContext';
 
 const app = (
 		<BrowserRouter>
-			<FilmsProvider>
-				<App />
-			</FilmsProvider>
+			{/* <FilmsProvider>
+				<CharacterProvider> */}
+					<App />
+				{/* </CharacterProvider>
+			</FilmsProvider> */}
 		</BrowserRouter>
 )
 

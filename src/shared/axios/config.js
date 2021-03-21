@@ -6,7 +6,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
 
 
 axios.interceptors.request.use(request => {
-    console.log(request);
+    // console.log("AXIOS REQUEST",request);
     // Edit request config
     return request;
 }, error => {
@@ -15,7 +15,7 @@ axios.interceptors.request.use(request => {
 });
 
 axios.interceptors.response.use(response => {
-    console.log(response);
+    // console.log("AXIOS RESPONSE", response);
     // Edit request config
     return response;
 }, error => {

@@ -18,7 +18,25 @@
         width: 30px;
         height: 30px;
         border-radius: 15px;
-        background: lightgray;
+        background: rgb(201, 254, 199);
+        cursor: pointer;
+        
+        &:hover{
+            background: rgb(145, 222, 143);
+        }
+    }
+    & .openMore{
+        width: fit-content;
+        padding: 5px 10px;
+        margin-top: 10px;
+        background: #ffdea4;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+
+        &:hover{
+            background: #e7bc72;
+        }
     }
 }
 
