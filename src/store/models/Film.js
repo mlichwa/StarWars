@@ -16,7 +16,7 @@ const Film = types.model('Film', {
     toggleFave: flow(function* () {
         
         console.log(self.episode_id);
-        self.isFaved = !self.isFaved
+        yield self.isFaved = !self.isFaved
 
         LocalStorage.updateFavoriteMovieForID(self.episode_id)
 

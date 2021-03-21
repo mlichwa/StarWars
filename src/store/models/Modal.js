@@ -14,7 +14,7 @@ const Modal = types.model('Modal', {
     // Show/hide modal view. Asynchronously load data and update it based on the API return.
     toggleModal: flow(function*( filmData){
         
-        self.showModal = !self.showModal
+        yield self.showModal = !self.showModal
         self.characters = []
         if(self.showModal){
             console.log("open modal view for film", filmData.episode_id);
@@ -36,7 +36,7 @@ const Modal = types.model('Modal', {
     addCharacter: flow(function*(data){
         console.log("Add Character to the stack");
         const localStorage = LocalStorage
-        data.isFaved = localStorage.getFavoriteStateForName(data.url)
+        yield data.isFaved = localStorage.getFavoriteStateForName(data.url)
         self.characters.push(data)
     })
 

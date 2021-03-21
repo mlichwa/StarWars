@@ -12,13 +12,13 @@ const Films = types.model('Films', {
   
   loadFilms: flow(function* () {
     console.log("Loading films")
-    self.isLoading = true
+    yield self.isLoading = true
     const data = yield StarWarsApi.getAllFilms()
     console.log("GOT FILMS:", data)
 
     if(data !== GET_ERROR){
-      self.films = data
-      self.isLoading = false
+      yield self.films = data
+      yield self.isLoading = false
 
       self.setInitialFavoritesState()
     }
@@ -27,13 +27,13 @@ const Films = types.model('Films', {
   setInitialFavoritesState: flow(function* (){
     
       const localStorage = LocalStorage
-      self.films.map( object => {
+      yield self.films.forEach( (object) => {
         object.isFaved = localStorage.getFavoriteStateForID(object.episode_id)
       })
   }),
 
   setActiveFilm: flow(function * (film){
-    self.activeFilm = film
+    yield self.activeFilm = film
     console.log('set active film for our modal view', film.episode_id)
     return self.activeFilm
   })

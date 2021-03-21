@@ -3,7 +3,6 @@ import Characters from '../../store/Characters';
 import CharacterCard from '../characterCard/characterCard';
 import styles from './favoritedCharacters.module.scss';
 import { observer } from 'mobx-react';
-import Film from '../../store/models/Film';
 
 const FavoritedCharactersComponent = observer(
     class FavoritedCharactersComponent extends React.Component{

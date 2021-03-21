@@ -26,7 +26,7 @@ const Character = types.model('Character', {
     
     toggleFave: flow(function* () {
         console.log("toggleFaved")
-        self.isFaved = !self.isFaved
+        yield self.isFaved = !self.isFaved
         LocalStorage.updateFavoriteCharacterWithName(self.url)
     })
     
