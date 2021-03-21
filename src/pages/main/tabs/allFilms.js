@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
-import AppBody from '../../../components/appBody/appBody';
 import styles from "./allFilms.module.scss";
+import Films from './../../../store/Films';
+import { observer } from 'mobx-react';
+import FilmsComponent from './../../../components/films/filmsComponent';
 
-function AllFilms() {
-    
-    return(
-        <div className={styles.component}>
-            <h1 className={styles.header} >All Films</h1>
-            <AppBody />
-        </div>   
-    )
-}
 
-export default withRouter(AllFilms);
+const AllFilms = observer(
+    class AllFilms extends React.Component{
+        
+        render() {
+            return(
+                <div className={styles.component}>
+                <h1 className={styles.header} >All Films</h1>
+                {
+                    Films.isLoading ? <p>Is loading....</p> : <FilmsComponent />
+                }
+            </div>   
+            )
+        }
+    }
+)
+
+export default AllFilms;

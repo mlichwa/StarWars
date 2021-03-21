@@ -1,30 +1,34 @@
-
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import MainPage from './pages/main/main';
 import Header from './components/header/header';
 import Logger from './components/logger/logger';
-import { useFilmsStore } from './store/filmsContext';
 import styles from './App.module.scss';
-import { Sync } from './store/api/sync';
-import Modal from './components/modal/Modal';
-import useModal from './components/modal/useModal';
+import Films from './store/Films';
+import { observer } from 'mobx-react';
+import Overlay from './components/overlay/overlay';
 
 
-function App(){
-
-    const filmsStore = useFilmsStore()
-    Sync.get_all_films(filmsStore)
-
-      return(
-        <Router>
-            <div className={styles.container}>
-              <Header triggerFilter={()=> this.triggerFilmFilter()} />
-              <Route path="*" component={() => <MainPage />} />
-              <Logger />
-            </div>
-        </Router>
-      ) 
-}
-
+const App = observer(
+  class App extends React.Component{
+      
+      componentDidMount = () => {
+          Films.loadFilms()
+      }
+      
+      render() {
+          return(
+              <Router>
+                  <div className={styles.container}>
+                      <Header />
+                      <Route path="*" component={() => <MainPage />} />
+                      <Logger />
+                      <Overlay/>
+                  </div>
+              </Router>
+          )
+      }
+  }
+)
 
 export default App;
