@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://swapi.dev/api/';
-axios.defaults.headers.post['Accept'] = 'application/json';
-axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
+axios.defaults.headers.get['Accept'] = 'application/json';
+// axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
 
 
 axios.interceptors.request.use(request => {
