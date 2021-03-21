@@ -25,7 +25,7 @@ class StarWarsApi {
     async getCharacter(url){
         console.log("StarWarsApi: Get A Character");
         
-        axios.defaults.baseURL = url
+        axios.defaults.baseURL = url.replace("http://", "https://") // By default, the API returns http so we need to fix it here.
 
         const character = axios.get(``, '', {
         }).then((response) => {
