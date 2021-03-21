@@ -1,5 +1,6 @@
 import { types, flow } from 'mobx-state-tree';
 
+
 const Character = types.model('Character', {
     name: types.identifier,
     birth_year: types.maybeNull(types.string),
