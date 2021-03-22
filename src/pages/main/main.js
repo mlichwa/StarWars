@@ -16,11 +16,11 @@ class MainPage extends Component {
                 component: AllFilms
             },
             {
-                path: "/favoritedFilms",
+                path: "#/favoritedFilms",
                 component: FavoritedFilms
             },
             {
-                path: "/favoritedCharacters",
+                path: "#/favoritedCharacters",
                 component: FavoritedCharacters
             }
         ];

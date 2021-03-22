@@ -21,10 +21,10 @@ const Header = observer(
                         <NavLink to="/" className={styles.item} activeClassName={styles.active} exact={true}>
                             All Films
                         </NavLink>
-                        <NavLink to="/favoritedFilms" className={styles.item} activeClassName={styles.active} exact={true}>
+                        <NavLink to="#/favoritedFilms" className={styles.item} activeClassName={styles.active} exact={true}>
                             Faved Films
                         </NavLink>
-                        <NavLink to="/favoritedCharacters" className={styles.item} activeClassName={styles.active} exact={true}>
+                        <NavLink to="#/favoritedCharacters" className={styles.item} activeClassName={styles.active} exact={true}>
                             Faved Characters
                         </NavLink>
                     </div>
