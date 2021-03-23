@@ -159,6 +159,7 @@
     "mobx-state-tree": "^5.0.1",
     "nanoid": "^3.1.22",
     "react-feather": "^2.0.9",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "rsv": "^1.0.2"
   }
 }

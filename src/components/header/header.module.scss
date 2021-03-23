@@ -7,6 +7,7 @@
     border-radius: 10px;
     overflow: hidden;
     z-index: 10;
+    box-shadow: 2px 2px 3px 0px #888888;
 
     & .header{
         padding: 0;
@@ -18,9 +19,9 @@
         padding: 10px 15px;
         border-bottom: 2px solid transparent;
         text-decoration: none;
-        color: rgb(0, 0, 0);
+        color: #4e4e4e;
         &:hover{
-            border-bottom: 2px solid rgb(30, 33, 182);
+            border-bottom: 2px solid rgb(227, 110, 0);
         }
     }
     & .active{

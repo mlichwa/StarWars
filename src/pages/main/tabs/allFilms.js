@@ -4,6 +4,7 @@ import Films from './../../../store/Films';
 import { observer } from 'mobx-react';
 import FilmsComponent from './../../../components/films/filmsComponent';
 import Spinner from './../../../components/spinner/spinner'
+import ErrorMessage from '../../../components/errorMessage/errorMessage'
 
 const AllFilms = observer(
     class AllFilms extends React.Component{
@@ -14,7 +15,8 @@ const AllFilms = observer(
                 <h1 className={styles.header} >All Films</h1>
                 {
                     Films.isLoading ? 
-                        <Spinner />: <FilmsComponent />
+                        <Spinner /> : Films.error !== 
+                            "" ? <ErrorMessage /> : <FilmsComponent />
                 }
             </div>   
             )
