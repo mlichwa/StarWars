@@ -7,7 +7,8 @@ import LocalStorage from './localStorage'
 const Films = types.model('Films', {
   isLoading: types.optional(types.boolean, false),
   films: types.optional(types.array(Film), []),
-  activeFilm: types.maybeNull(types.reference(Film), null)
+  activeFilm: types.maybeNull(types.reference(Film), null),
+  error: types.optional(types.string, "")
 })
 .actions(self => ({
   
@@ -35,12 +36,14 @@ const Films = types.model('Films', {
   }),
 
   setActiveFilm: flow(function * (film){
-    self.activeFilm = film
-    console.log('set active film for our modal view', film.episode_id)
-    return self.activeFilm
+      self.activeFilm = film
+      console.log('set active film for our modal view', film.episode_id)
+      return self.activeFilm
+  }),
+
+  errorMessage: flow(function(){
+      self.error = "Characters API failed"
   })
-
-
   
 }))
 .create();

@@ -7,6 +7,7 @@ import LocalStorage from './localStorage'
 const Characters = types.model('Characters', {
   isLoading: types.optional(types.boolean, false),
   characters: types.optional(types.array(Character), []),
+  error: types.optional(types.string, "")
 })
 .actions(self => ({
   

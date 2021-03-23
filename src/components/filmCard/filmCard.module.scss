@@ -8,6 +8,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    box-shadow: 2px 2px 3px 0px #888888;
 
     & .starButton{
         background: transparent;

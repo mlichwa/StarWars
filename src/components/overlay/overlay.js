@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react';
 import styles from './overlay.module.scss'
 import classNames from 'classnames'
-import Modal from '../../store/models/Modal'
+import Modal from '../../store/Modal'
 import CharacterCard from '../characterCard/characterCard'
 import Films from '../../store/Films'
 import * as Icon from 'react-feather';
+import Spinner from '../spinner/spinner';
+import ErrorMessage from '../errorMessage/errorMessage';
 
 const Overlay = observer(
     class Overlay extends Component {
@@ -14,7 +16,6 @@ const Overlay = observer(
             super(props)
             this.state = {
                 
-                isLoading : true,
             }
             this.escFunction = this.escFunction.bind(this);
         }
@@ -69,9 +70,12 @@ const Overlay = observer(
         render() {
             
             const showModal = Modal.showModal ? styles.show : null
-            const allCharacters = Modal.characters.length !== 0 ? this.loadCharacters() : null
+            const error = Modal.error !== "" ? <ErrorMessage /> : null
+            const allCharacters = Modal.characters.length !== 0 ? this.loadCharacters() : <Spinner />
             const film = Films.activeFilm != null ? this.loadFilmInformation() : null
             return (
+                Modal.error !== "" ? 
+                <ErrorMessage /> : 
                 <div>
                     <div className={classNames([styles.overlay, showModal])}>
                         <div className={styles.Wrapper} aria-modal aria-hidden tabIndex={-1} role="dialog">
@@ -95,7 +99,6 @@ const Overlay = observer(
                         </div>
                     </div>
                 </div>
-                
             )
         }
     }

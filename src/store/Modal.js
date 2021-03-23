@@ -1,14 +1,15 @@
 /*eslint require-yield: "off"*/
 import { types, flow } from 'mobx-state-tree';
-import Character from './Character';
-import StarWarsApi, { GET_ERROR } from '../api/starWars';
-import Films from '../Films';
-import LocalStorage from '../localStorage'
+import Character from './models/Character';
+import StarWarsApi, { GET_ERROR } from './api/starWars';
+import Films from './Films';
+import LocalStorage from './localStorage'
 
 const Modal = types.model('Modal', {
     isLoading: types.optional(types.boolean, false),
     characters: types.optional(types.array(Character), []),
     showModal: types.optional(types.boolean, false),
+    error: types.optional(types.string, "") 
 })
 .actions(self => ({
   
@@ -27,6 +28,8 @@ const Modal = types.model('Modal', {
                 // console.log("GOT Character:", data)
                 if(data !== GET_ERROR){
                     self.addCharacter(data) 
+                }else{
+                    self.errorMessag()
                 }
             });
         }    
@@ -39,7 +42,14 @@ const Modal = types.model('Modal', {
         const localStorage = LocalStorage
         data.isFaved = localStorage.getFavoriteStateForName(data.url)
         self.characters.push(data)
+    }),
+    
+
+    errorMessage: flow(function(){
+        self.error = "Characters API failed"
     })
+
+
 
 }))
 .create();

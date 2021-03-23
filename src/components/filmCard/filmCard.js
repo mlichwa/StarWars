@@ -3,7 +3,7 @@ import styles from './filmCard.module.scss';
 import { observer } from 'mobx-react';
 import classNames from 'classnames';
 import * as Icon from 'react-feather';
-import Modal from "../../store/models/Modal";
+import Modal from "../../store/Modal";
 
 const FilmCard = observer(
     class FilmCard extends Component{
