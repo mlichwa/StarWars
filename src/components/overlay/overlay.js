@@ -70,7 +70,6 @@ const Overlay = observer(
         render() {
             
             const showModal = Modal.showModal ? styles.show : null
-            const error = Modal.error !== "" ? <ErrorMessage /> : null
             const allCharacters = Modal.characters.length !== 0 ? this.loadCharacters() : <Spinner />
             const film = Films.activeFilm != null ? this.loadFilmInformation() : null
             return (
