@@ -1,3 +1,4 @@
+![alt text](https://github.com/mlichwa/StarWars/blob/82a98c33f43c5fa45c1bb4c6bf6260cb3dd78537/img.png "Preview")
 # Star Wars React App.
 This readme will guide you though the installation, the code setup, the development and deployment process of the app.
 
@@ -14,5 +15,3 @@ Additioal libraries worth mentioning:
 
 ## Deployment
 I'm using Github 'develop' branch to test out new features and add code. Master branch is treated as a release branch. Every time there is a pull request, Netlify is notified and re-compiles the app. On Netlify I treat warnings as errors. 
-
-
